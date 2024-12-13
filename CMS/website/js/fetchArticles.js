@@ -21,7 +21,7 @@ function fetchArticles () {
             card.innerHTML= `
                <div class="card h-100">
                     <a href=# onclick="loadArticleToViewPage(${article.id})" style="text-decoration-line: none">
-                    <img src="${article.picture}" class="card-img-top" alt="${article.title}" style="height: 300px">
+                    <img src="${article.picture}" class="card-img-top" alt="${article.title}" style="height: 450px">
                     <div class="card-body">
                         <h5 class="card-title" ">${article.title}</h5>
                         </a>

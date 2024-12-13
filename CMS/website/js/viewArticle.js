@@ -31,8 +31,6 @@ function viewArticle() {
                 <p>${article.description}</p>
                 
             `
-            const ime = 'Cristiano Ronaldo, jedan od najvećih fudbalera u istoriji, rođen je 5. februara 1985. godine u Funšalu, na portugalskom ostrvu Madeira. Poznat je po svojoj izvanrednoj atletičnosti, radnoj etici i strasti prema';
-                console.log(ime.length);
         })
         .catch(error => {
             console.error("Error loading article data:", error);
