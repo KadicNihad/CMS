@@ -2,20 +2,25 @@ function createArticle () {
         const title = document.getElementById('title').value;
         const pictureUrl = document.getElementById('pictureUrl').value;
         const description = document.getElementById('description').value;
+        const errorMessage = document.getElementById('message');
 
         if(!title || !pictureUrl || !description) {
-            console.log('Please check your inputs');
-        }else {
+            errorMessage.innerText= 'Please check your inputs';
+            errorMessage.style.color='red';
+            return
+        }
             if(title.length <3 || title.length > 70) {
                     document.getElementById('titleErrorMessage').innerText = "Title mora imati minimalno 3 a makssimalno 70 karaktera" ;
                     document.getElementById('title').className= ' form-control border-danger';
-
-            }else if (description.length <3 || description.length > 500){
+                return;
+            }
+            if (description.length <3 || description.length > 500){
                 document.getElementById('titleErrorMessage').innerText = "" ;
                 document.getElementById('title').className= 'form-control';
                 document.getElementById('descriptionErrorMessage').innerText = "Description mora imati minimalno 3 a makssimalno 500 karaktera" ;
                 document.getElementById('description').className= ' form-control border-danger';
-            }else {
+                return;
+            }
                 document.getElementById('titleErrorMessage').innerText = "" ;
                 document.getElementById('title').className= ' form-control';
 
@@ -35,18 +40,13 @@ function createArticle () {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(jsonData)
-                }).then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
                 }).then(data => {
-                    console.log("Created Successfully", jsonData);
+                    errorMessage.innerText= 'Create Successfully!';
+                    errorMessage.style.color='green';
+                    window.location.href='index.html';
                 }).catch(error => {
-                    console.log("Created Error", error)
+                    errorMessage.innerText= 'error';
+                    errorMessage.style.color='red';
                 });
-                window.location.href='index.html';
-            }
-        }
-
 
 }
