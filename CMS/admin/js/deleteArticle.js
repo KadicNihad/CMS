@@ -16,15 +16,14 @@ function deleteArticle () {
             "Authorization": `Bearer ${bearerToken}`,
             'Content-Type': 'application/json'
         },
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
     }).then(data => {
-        console.log("Delete Successfully");
-        window.reload;
+        document.getElementById('message').innerText='Delete Successfully';
+        document.getElementById('message').style.color='green';
+        document.getElementById(articleId).remove();
     }).catch(error => {
-        console.log("Created Error", error)
+        document.getElementById('message').innerText=error;
+        document.getElementById('message').style.color='red';
+
     }).finally(() => {
         const modal = bootstrap.Modal.getInstance(document.getElementById('deleteArticleModal'));
         modal.hide();
