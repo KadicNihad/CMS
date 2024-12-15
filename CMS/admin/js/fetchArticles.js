@@ -19,6 +19,7 @@ function fetchArticles () {
         if (articles.length){
             articles.forEach(article => {
                 const row = document.createElement("tr");
+                row.id= article.id;
                 row.innerHTML= `
                 <td>${article.id}</td>
                 <td>${article.title}</td>

@@ -7,11 +7,6 @@ function fetchArticles () {
         headers: {
             "Authorization": `Bearer ${bearerToken}`
         }
-    }).then(response => {
-        if(!response.ok) {
-            throw new Error(`HTTP error! Status:${response.status}`);
-        }
-        return response.json();
     }).then(articles => {
         const articleCard = document.getElementById("articleCard");
         articleCard.innerHTML = "";
