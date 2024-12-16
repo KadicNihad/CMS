@@ -24,7 +24,7 @@ window.onload = function fetchArticles() {
                 <td>${article.picture}</td>
                 <td>${article.createdAt}</td>
                 <td>
-                     <button type="button" class="btn btn-warning" onclick="openEditPage(${article.id})">Edit</button>
+                     <button type="button" class="btn btn-warning" onclick="onOpenEditPageClick(${article.id})">Edit</button>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" onclick="OnOpenDeleteModalClick(${article.id})" data-bs-target="#deleteArticleModal">Delete</button>
                 </td>
                 `;
