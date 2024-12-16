@@ -1,5 +1,5 @@
 let articleId =null;
-function openDeleteModal (id) {
+function OnOpenDeleteModalClick (id) {
     articleId = id;
 
 }
@@ -20,12 +20,12 @@ function deleteArticle () {
         document.getElementById('message').innerText='Delete Successfully';
         document.getElementById('message').style.color='green';
         document.getElementById(articleId).remove();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('deleteArticleModal'));
+        modal.hide();
+
     }).catch(error => {
         document.getElementById('message').innerText=error;
         document.getElementById('message').style.color='red';
 
-    }).finally(() => {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('deleteArticleModal'));
-        modal.hide();
     });
 }
