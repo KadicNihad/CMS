@@ -1,4 +1,4 @@
- function loadArticleDataToEditPage() {
+ window.onload = function loadingArticleDataInEditPage() {
     const bearerToken = 'FsRRUFsYboQjJSHAdAouTQPWvHCCIOagwcbAOTFL';
     const apiUrl = 'https://api.webbytechexpert.com/devTest/api.php';
 
@@ -6,7 +6,8 @@
     const articleId = urlParams.get('id');
 
     if (!articleId) {
-        console.error("No article ID found .");
+        document.getElementById('message').innerText = 'ID not found';
+        document.getElementById('message').style.color='red';
         return;
     }
 
@@ -17,9 +18,6 @@
         }
     })
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
             return response.json();
         })
         .then(article => {
@@ -28,7 +26,7 @@
             document.getElementById("description").value = article.description;
         })
         .catch(error => {
-            console.error("Error loading article data:", error);
+            document.getElementById('message').innerText = error;
+            document.getElementById('message').style.color='red';
         });
 }
-window.onload = loadArticleDataToEditPage();
